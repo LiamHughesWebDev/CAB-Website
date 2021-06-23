@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError, Subject } from 'rxjs';
 import { User } from './user.model';
+import { environment } from 'src/environments/environment';
 
 export interface AuthResponseData {
     kind: string;
@@ -22,7 +23,7 @@ export class LoginService {
     constructor(private http: HttpClient) {}
 
     signup(email: string, password: string){
-        return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCXTFHhCx5FyFgUiIfHh0YnwppTAmQVNnQ',
+        return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.LoginAPIKey,
         {
             email: email,
             password: password,
@@ -47,7 +48,7 @@ export class LoginService {
     }
 
     login(email: string, password: string){
-        return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCXTFHhCx5FyFgUiIfHh0YnwppTAmQVNnQ',
+        return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.LoginAPIKey,
         {
             email: email,
             password: password,
