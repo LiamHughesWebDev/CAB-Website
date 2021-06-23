@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "CAB"
+    }
+  },
+  "defaultProject": "CAB",
+  "cli": {
+    "analytics": "9d7f04ed-2b6c-4660-8c8e-547065e9af1c"
+  }
 }

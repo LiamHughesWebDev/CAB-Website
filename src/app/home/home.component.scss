@@ -1,0 +1,76 @@
+@font-face {
+	font-family: CABf;
+	src: url(/assets/fonts/3Dumb.ttf);
+}
+
+main {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: 80%;
+	margin: 0 auto;
+	background-color: #cecece;
+
+	.section {
+		margin: 2% 0;
+		width: 30%;
+		min-height: 45em;
+	}
+}
+section {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+
+	width: 80%;
+	margin: 0 auto;
+	background-color: #cecece;
+
+	.section {
+		margin: 2% 2%;
+		width: 20%;
+	}
+}
+aside{
+	width: 80%;
+	margin: auto;
+	text-align: center;
+}
+
+@media (max-width: 1200px) {
+}
+@media (max-width: 992px) {
+	main {
+		width: 90%;
+		flex-direction: column;
+		justify-content: center;
+
+		.section {
+			width: 60%;
+			margin: 0 auto;
+		}
+	}
+	section {
+		width: 90%;
+		flex-direction: column;
+		justify-content: center;
+
+		.section {
+			width: 60%;
+			margin: 0 auto;
+		}
+	}
+}
+@media (max-width: 768px) {
+	main {
+		width: 90%;
+		flex-direction: column;
+		justify-content: center;
+
+		.section {
+			width: 70%;
+			margin: 0 auto;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+<main>
+    <a
+        *ngFor="let book of Books"
+        href="{{ book.volumeInfo.previewLink }}">
+    <img src="{{ book.volumeInfo.imageLinks.smallThumbnail }}">
+    
+    <h2>${{book.saleInfo.listPrice.amount }}</h2>
+    <button>Click to Preview!</button>
+    </a>
+</main>
+

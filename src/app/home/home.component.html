@@ -1,0 +1,25 @@
+
+<main *ngIf="!isLoading">
+    <app-featured-result  *ngFor="let Book of FeaturedBook"
+    [FeaturedBook]="Book"
+    class="section"></app-featured-result>
+</main>
+
+<aside *ngIf="isLoading">
+    <app-loading-spinner></app-loading-spinner>
+</aside>
+
+<aside>
+    <app-advertisment></app-advertisment>
+</aside>
+
+<aside *ngIf="isLoading">
+    <app-loading-spinner></app-loading-spinner>
+</aside>
+
+<section *ngIf="!isLoading">
+    <app-small-result *ngFor="let Book of RecommendedBook"
+    [RecommendedBook]="Book"
+    class="section">></app-small-result>
+</section>
+

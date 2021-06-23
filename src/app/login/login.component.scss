@@ -1,0 +1,87 @@
+main {
+	width: 80%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	background-color: #cecece;
+	
+
+	aside{
+		display: flex;
+		flex-direction: column;
+
+		width: 30%;
+		margin: auto;
+		margin-bottom: 3%;
+		
+		h2{
+			text-align: center;
+		}
+		button{
+			width: 40%;
+			height: 2.5em;
+			margin: 3% auto;
+		}
+	}
+
+	section {
+		border: 3px solid grey;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+
+		width: 40%;
+		margin: 3% auto;
+
+		// background-color: red;
+
+		h1 {
+			margin: auto;
+			font-size: 3em;
+		}
+
+		h2{
+			margin: auto;
+			font-size: 3em;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			margin: auto;
+			width: 60%;
+
+			label {
+				font-size: 2em;
+				margin: 4% auto 1% auto;
+			}
+
+			input {
+				width: 80%;
+				margin: auto;
+				padding: 3% 3%;
+				background-color: azure;
+			}
+
+			button{
+				width: 40%;
+				height: 2.5em;
+				margin: 3% auto;
+
+
+			}
+		}
+
+		aside{
+			width: 40%;
+			margin: auto;
+			margin-bottom: 3%;
+			text-align: center;
+			font-size: 1.3em;
+		}
+
+		.error{
+			border: 3px solid red;
+		}
+	}
+}
