@@ -2,9 +2,25 @@
 	font-family: CABf;
 	src: url(/assets/fonts/3Dumb.ttf);
 }
-.wrappper {
-	height: 100%;
+
+$HomeColor: #205fbd;
+$BrowseColor: #164283;
+$BooksColor: #ac1a37;
+$LogColor: #d03a67;
+
+.home{
+	background-color: $HomeColor;
 }
+.browse{
+	background-color: $BrowseColor;
+}
+.books{
+	background-color: $BooksColor;
+}
+.log{
+	background-color: $LogColor;
+}
+
 header {
 	display: flex;
 	flex-direction: column;
@@ -34,32 +50,33 @@ header {
 }
 
 nav {
+	width: 80%;
+	margin: auto;
+
 	ul {
-		margin-top: -5%;
 		display: flex;
 		flex-direction: row;
 		list-style-type: none;
-		flex-basis: 100%;
 		justify-content: center;
+		margin-top: -5%;
 
-		li {
-			padding-top: 2.8%;
-			padding-bottom: 3%;
-			text-align: center;
-			height: 30%;
-			width: 20%;
-			background-color: red;
+		a {
+			width: 100%;
+			text-decoration: none;
 
-			a {
-
+			li {
+				text-align: center;
 				color: white;
-				text-decoration: none;
-				font-size: 2em;
-				padding: 14% auto;
+
+				padding: 15% 0%;
+				font-size: 1.75em;
 			}
-			a:hover {
-				color: yellow;
+			
+			li:hover{
+				backdrop-filter: brightness(0.8);
 			}
+		
+			
 		}
 	}
 }
@@ -80,7 +97,7 @@ nav {
 			flex-direction: row;
 			justify-content: space-evenly;
 			align-items: flex-start;
-			width: 70%;
+			width: 90%;
 			margin: 0% auto;
 			margin-top: -1em;
 			background-color: #9e0b0f;
@@ -157,6 +174,14 @@ footer {
 		}
 	}
 }
+
+
+
+
+
+
+
+
 @media (max-width: 1800px) and (min-width: 1500px) {
 	header {
 		background-position-x: 50%;
@@ -170,6 +195,14 @@ footer {
 		background-position-y: 80%;
 		background-size: 90%;
 	}
+	#searchBar {
+		padding-top: 1%;
+
+		form {
+			width: 100%;
+			margin-left: 3%;
+		}
+	}
 }
 
 @media (max-width: 1200px) and (min-width: 992px) {
@@ -178,7 +211,22 @@ footer {
 		background-position-y: 80%;
 		background-size: 90%;
 	}
+	#searchBar {
+		padding-top: 2%;
+		padding-bottom: 1%;
+
+		form {
+			width: 100%;
+			margin-left: 3%;
+		}
+	}
 }
+
+
+
+
+
+
 
 @media (max-width: 992px) {
 	header {
@@ -197,14 +245,25 @@ footer {
 	}
 
 	nav {
+		width: 90%;
+
 		ul {
 			flex-direction: column;
-			width: 90%;
 			margin: auto;
+
+			a{
+				width: 100%;
+
+				li{
+					padding: 5% 0%;
+				}
+			}
 		}
 	}
 	#searchBar {
 		width: 90%;
+		padding-top: 6%;
+		padding-bottom: 2%;
 
 		form {
 			width: 100%;
@@ -219,6 +278,9 @@ footer {
 		}
 	}
 }
+
+
+
 @media (max-width: 768px) {
 	header {
 		background-position-x: 50%;
@@ -236,14 +298,25 @@ footer {
 	}
 
 	nav {
+		width: 90%;
+
 		ul {
 			flex-direction: column;
-			width: 90%;
 			margin: auto;
+
+			a{
+				width: 100%;
+
+				li{
+					padding: 5% 0%;
+				}
+			}
 		}
 	}
 	#searchBar {
 		width: 90%;
+		padding-top: 6%;
+		padding-bottom: 2%;
 
 		form {
 			width: 100%;

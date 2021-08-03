@@ -3,5 +3,6 @@
         "auth",
         "service",
         "signup"
-    ]
+    ],
+    "angular.enable-strict-mode-prompt": false
 }

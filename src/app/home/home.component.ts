@@ -58,6 +58,7 @@ export class HomeComponent implements OnInit {
 
 
     console.log(this.FeaturedBook);
+    console.log(this.RecommendedBook);
   }
 
  

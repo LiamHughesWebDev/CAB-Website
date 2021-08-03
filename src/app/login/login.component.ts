@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AuthResponseData, LoginService } from './login.service';
+
 
 
 @Component({
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
  
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
     const password = form.value.password;
     let authObs: Observable<AuthResponseData>;
 
-    this.isLoading = true;
+    this.isLoading = true; //enables loading spinner
 
     if (this.isLoginMode) {
       authObs = this.loginService.login(email, password)
@@ -48,11 +50,13 @@ export class LoginComponent implements OnInit {
       resData => {
         console.log(resData);
         this.isLoading = false;
+        this.router.navigate(['/']);
       },
       errorMessage => {
         console.log(errorMessage);
         this.error = errorMessage;
         this.isLoginMode = false;
+        this.isLoading = false;
       })
           
       form.reset();

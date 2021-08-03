@@ -1,0 +1,9 @@
+Design:
+
+-switch <li> and <a> tags on app.html to make entire button clickable
+-bring "CAB" and "Chidlrens Audio Books" closer together and center in middle
+-Make "buy now" section look better
+
+_round corners?
+_replace white background?
+

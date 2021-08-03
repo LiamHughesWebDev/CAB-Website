@@ -85,3 +85,27 @@ main {
 		}
 	}
 }
+@media (max-width: 768px) {
+	main{
+		width: 90%;
+
+		section{
+			width: 80%;
+		}
+		aside{
+			width: 70%;
+		}
+	}
+}
+@media (max-width: 992px) {
+	main{
+		width: 90%;
+
+		section{
+			width: 80%;
+		}
+		aside{
+			width: 70%;
+		}
+	}
+}

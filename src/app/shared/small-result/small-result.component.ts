@@ -9,6 +9,7 @@ export class SmallResultComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit(): void {
   }
   @Input() RecommendedBook;

@@ -1,28 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BookService } from './books.service';
 import { Router } from '@angular/router';
+import { LoginService } from './login/login.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  navigation = [
-    { name: "Home", color: "#205fbd" },
-    { name: "Genres", color: "#164283" },
-    { name: "Deals", color: "#ac1a37" },
-    { name: "Login", color: "#d03a67" }
-  ];
+export class AppComponent implements OnInit, OnDestroy {
 
-  constructor(private BookService: BookService, private router: Router) { }
+  isAuthenticated = false;
+  private userSub: Subscription;
 
-
+  constructor(private BookService: BookService, private router: Router, private loginService: LoginService) { }
 
   ngOnInit(): void {
+    this.userSub = this.loginService.user.subscribe(user => {
+      this.isAuthenticated = !!user; //if user exists, this returns true
+      
+      // console.log(!user);
+      // console.log(!!user);
+    });
 
-
+    this.loginService.autoLogin();
   }
 
   onSearch(f) {
@@ -34,7 +37,13 @@ export class AppComponent {
 
   }
 
+  onLogout(){
+    this.loginService.logout();
+  }
 
+  ngOnDestroy(){
+    this.userSub.unsubscribe();
+  }
  
 
 }

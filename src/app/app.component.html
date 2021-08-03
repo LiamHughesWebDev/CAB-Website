@@ -7,10 +7,29 @@
 
 <nav>
   <ul>
-    <li style="background-color:#205fbd;"><a href="" routerLink="/"> Home</a></li>
-    <li style="background-color:#164283;"><a href="" routerLink="/genres"> Browse</a></li>
-    <li style="background-color:#ac1a37"><a href="" routerLink="/deals"> My&nbsp;Books</a></li>
-    <li style="background-color:#d03a67"><a href="" routerLink="/login"> Login</a></li>
+    <a routerLink="/" class="home">
+      <li>Home</li>
+    </a>
+    <a routerLink="/genres" class="browse"> 
+      <li>Browse </li>
+    </a>
+   
+    <a routerLink="/deals" *ngIf="!isAuthenticated" class="books"> 
+      <li>New&nbsp;Books</li>
+    </a>
+
+    <a routerLink="/mybooks" *ngIf="isAuthenticated" class="books">
+      <li> My&nbsp;Books</li>
+    </a>
+
+    <a routerLink="/login" *ngIf="!isAuthenticated" class="log">
+      <li> Login</li>
+    </a>
+
+    <a (click)="onLogout()" style="cursor: pointer;" *ngIf="isAuthenticated" class="log">
+      <li> Logout</li>
+    </a>
+
   </ul>
 </nav>
 

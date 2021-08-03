@@ -13,8 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { SmallResultComponent } from './shared/small-result/small-result.component';
 import { AdvertismentComponent } from './shared/advertisment/advertisment.component';
 import { FeaturedResultComponent } from './shared/featured-result/featured-result.component';
-import { DealsComponent } from './deals/deals.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { MyBooksComponent } from './my-books/my-books.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     SmallResultComponent,
     AdvertismentComponent,
     FeaturedResultComponent,
-    DealsComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    MyBooksComponent
   ],
   imports: [
     BrowserModule,
