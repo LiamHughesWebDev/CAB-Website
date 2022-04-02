@@ -59,10 +59,12 @@ nav {
 		list-style-type: none;
 		justify-content: center;
 		margin-top: -5%;
+		
 
 		a {
 			width: 100%;
 			text-decoration: none;
+			
 
 			li {
 				text-align: center;
@@ -78,7 +80,15 @@ nav {
 		
 			
 		}
+		a:first-child{
+			border-top-left-radius: 25px;
+		}
+		a:last-child{
+			border-top-right-radius: 25px;
+		}
+	
 	}
+
 }
 
 #searchBar {

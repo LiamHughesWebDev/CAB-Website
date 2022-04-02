@@ -29,6 +29,26 @@ export class LoginComponent implements OnInit {
     this.isLoginMode = !this.isLoginMode;
   }
 
+  switchPage(page){
+    var pg1 = document.getElementById("pg1");
+    var pg2 = document.getElementById("pg2");
+
+    switch (page) {
+      case 1:
+        pg1.style.display = "block";
+        pg2.style.display = "none";
+        break;
+
+      case 1:
+        pg1.style.display = "none";
+        pg2.style.display = "block";
+        break;  
+    
+      default:
+        break;
+    }
+  }
+
   onSubmit(form: NgForm){
     if (!form.valid){
       return;

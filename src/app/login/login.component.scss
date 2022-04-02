@@ -3,8 +3,8 @@ main {
 	margin: auto;
 	display: flex;
 	flex-direction: column;
-	background-color: #cecece;
-	
+	background-color: white;
+
 
 	aside{
 		display: flex;
@@ -13,6 +13,11 @@ main {
 		width: 30%;
 		margin: auto;
 		margin-bottom: 3%;
+		margin-top: 1%;
+
+		border: 2px solid lightgrey;
+		padding: 1%;
+
 		
 		h2{
 			text-align: center;
@@ -21,11 +26,19 @@ main {
 			width: 40%;
 			height: 2.5em;
 			margin: 3% auto;
+			background-color: #d03a67;
+			border-radius: 4px;
+			color: white;
+			font-size: 0.8em;
+
 		}
 	}
 
 	section {
-		border: 3px solid grey;
+		border-left: 2px solid lightgrey;
+		border-right: 2px solid lightgrey;
+
+
 		display: flex;
 		flex-direction: column;
 		align-content: center;
@@ -61,14 +74,18 @@ main {
 				margin: auto;
 				padding: 3% 3%;
 				background-color: azure;
+				border: 1px solid darkgray; 
 			}
 
 			button{
 				width: 40%;
 				height: 2.5em;
 				margin: 3% auto;
-
-
+				color: white;
+				font-size: 1.2em;
+				border-radius: 4px;
+				margin-top: 8%;
+				background-color: #ac1a37;
 			}
 		}
 
@@ -83,6 +100,10 @@ main {
 		.error{
 			border: 3px solid red;
 		}
+
+	}
+	#pg2{
+		display: none;
 	}
 }
 @media (max-width: 768px) {

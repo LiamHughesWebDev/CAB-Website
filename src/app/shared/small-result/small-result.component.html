@@ -1,8 +1,7 @@
 <section>
     <a href="{{ RecommendedBook[0].items[1].volumeInfo.previewLink }}">
         <img src="{{ RecommendedBook[0].items[1].volumeInfo.imageLinks.smallThumbnail }}">
-
-        <h2>${{ RecommendedBook[0].items[1].saleInfo.listPrice.amount }}</h2>
-        <button>Buy Now!</button>
+        <h1>{{ RecommendedBook[0].items[1].volumeInfo.title }}</h1>
+        <!-- <h2>${{ RecommendedBook[0].items[1].saleInfo.listPrice.amount }}</h2> -->
     </a>
 </section>
