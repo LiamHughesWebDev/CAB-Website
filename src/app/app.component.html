@@ -15,7 +15,7 @@
     </a>
    
     <a routerLink="/deals" *ngIf="!isAuthenticated" class="books"> 
-      <li>New&nbsp;Books</li>
+      <li>Sign&nbsp;up</li>
     </a>
 
     <a routerLink="/mybooks" *ngIf="isAuthenticated" class="books">
@@ -36,7 +36,7 @@
 <div id="searchBar">
   <form (ngSubmit)="onSearch(f)" #f="ngForm">
     <div class="container">
-      <img src="../assets/images/icons8-search.svg">
+      
       <input type="text" class="input" placeholder="Search from our Library" autocomplete="on" ngModel name="search" />
     </div>
   </form>

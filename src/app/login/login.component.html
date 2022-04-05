@@ -9,8 +9,7 @@
         </aside>
 
         <form #LoginForm="ngForm" (ngSubmit)="onSubmit(LoginForm)" *ngIf="!isLoading">
-            <button (click)="switchPage(1)">1</button>
-            <button>2</button>
+         
             <div id="pg1">
                 <label for="email">Email</label>
                 <input type="email" id="email" ngModel name="email" required email>

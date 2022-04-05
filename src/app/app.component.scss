@@ -73,20 +73,32 @@ nav {
 				padding: 15% 0%;
 				font-size: 1.75em;
 			}
-			
-			li:hover{
-				backdrop-filter: brightness(0.8);
-			}
-		
+	
 			
 		}
 		a:first-child{
 			border-top-left-radius: 25px;
+
+			li:hover {
+				backdrop-filter: brightness(0.8);
+				border-top-left-radius: 25px;
+			}
 		}
 		a:last-child{
 			border-top-right-radius: 25px;
+
+			li:hover {
+				backdrop-filter: brightness(0.8);
+				border-top-right-radius: 25px;
+			}
 		}
-	
+		a:not(:first-child):not(:last-child){
+			
+			li:hover{
+				backdrop-filter: brightness(0.8);
+			}
+		}
+		
 	}
 
 }
@@ -94,10 +106,13 @@ nav {
 #searchBar {
 	display: flex;
 	width: 80%;
+	height: 2em;
 
 	overflow: hidden;
 	background-color: #9e0b0f;
-	margin: auto;
+	margin: 0.2em auto;
+
+	transition: margin 1s;
 
 	form {
 		width: 90%;
@@ -141,6 +156,10 @@ nav {
 			color: white;
 		}
 	}
+}
+#searchBar:hover{
+	height: 3.5em;
+	
 }
 
 footer {
