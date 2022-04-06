@@ -27,16 +27,14 @@ header {
 
 	background-image: url('/assets/images/header.png');
 	background-position: center;
-	background-position-x: 50%;
-	background-position-y: 0%;
-	background-size: 90%;
+	background-position-x: 10%;
+	background-position-y: 80%;
+	background-size: 100%;
 	background-repeat: no-repeat;
 
 	h1 {
-		font-size: 11em;
+		font-size: 10em;
 		text-align: center;
-		padding-top: 0%;
-		margin-top: 1%;
 		font-family: CABf;
 		color: white;
 	}
@@ -64,7 +62,7 @@ nav {
 		a {
 			width: 100%;
 			text-decoration: none;
-			
+			-webkit-filter: brightness(100%);
 
 			li {
 				text-align: center;
@@ -78,25 +76,18 @@ nav {
 		}
 		a:first-child{
 			border-top-left-radius: 25px;
-
-			li:hover {
-				backdrop-filter: brightness(0.8);
-				border-top-left-radius: 25px;
-			}
+			
+			
 		}
 		a:last-child{
 			border-top-right-radius: 25px;
 
-			li:hover {
-				backdrop-filter: brightness(0.8);
-				border-top-right-radius: 25px;
-			}
-		}
-		a:not(:first-child):not(:last-child){
 			
-			li:hover{
-				backdrop-filter: brightness(0.8);
-			}
+		}
+	
+		a:hover{
+			-webkit-filter: brightness(80%);
+
 		}
 		
 	}
@@ -106,17 +97,17 @@ nav {
 #searchBar {
 	display: flex;
 	width: 80%;
-	height: 2em;
+	
 
 	overflow: hidden;
 	background-color: #9e0b0f;
-	margin: 0.2em auto;
-
-	transition: margin 1s;
+	margin: auto;
+	-webkit-filter: brightness(100%);
 
 	form {
 		width: 90%;
-		margin: auto;
+		margin: 1.5% auto;
+		-webkit-filter: brightness(100%);
 
 		div {
 			flex-direction: row;
@@ -124,43 +115,54 @@ nav {
 			align-items: flex-start;
 			width: 90%;
 			margin: 0% auto;
-			margin-top: -1em;
-			background-color: #9e0b0f;
+			
+			
 
 			img {
-				width: 8%;
-				transform: rotate(-45deg) scale(0.9) translateY(60%);
+				position: fixed;
+				height: 100%;
+				cursor: pointer;
+				
+
+				background-color: rgb(200, 200, 200);
+				border-radius: 0 10px 10px 0;
 			}
 
 			input {
-				margin-bottom: 2%;
-				margin-left: 2%;
+				
 				padding: 1%;
 				width: 85%;
+				height: 25px;
 
 				border: none;
-				border-radius: 15px;
+				border-radius: 10px 0 0 10px;;
 
-				font-size: 2.5em;
-				color: white;
+				font-size: 150%;
+				color: #444444;
 				text-align: left;
 				text-overflow: ellipsis;
-				background-color: #d3a0a2;
+				background-color: rgb(200, 200, 200);
 			}
 			input:focus {
 				outline: none;
+				color: #222222;
 			}
 		}
 
-		::placeholder {
-			color: white;
-		}
+		
+		
+	
 	}
 }
 #searchBar:hover{
-	height: 3.5em;
+	-webkit-filter: brightness(90%);
+
+	form{
+		-webkit-filter: brightness(110%);
+	}
 	
 }
+
 
 footer {
 	width: 80%;
@@ -211,21 +213,23 @@ footer {
 
 
 
-@media (max-width: 1800px) and (min-width: 1500px) {
+@media (min-width: 1500px) {
 	header {
 		background-position-x: 50%;
 		background-position-y: 80%;
 		background-size: 90%;
 	}
 }
+
 @media (max-width: 1500px) and (min-width: 1200px) {
 	header {
 		background-position-x: 50%;
 		background-position-y: 80%;
 		background-size: 90%;
+		
 	}
 	#searchBar {
-		padding-top: 1%;
+		
 
 		form {
 			width: 100%;
@@ -234,14 +238,18 @@ footer {
 	}
 }
 
-@media (max-width: 1200px) and (min-width: 992px) {
+@media (max-width: 1500px) and (min-width: 902px) {
 	header {
 		background-position-x: 50%;
 		background-position-y: 80%;
 		background-size: 90%;
+
+		h1{
+			font-size: 7em;
+		}
 	}
 	#searchBar {
-		padding-top: 2%;
+		padding-top: 1%;
 		padding-bottom: 1%;
 
 		form {
@@ -257,14 +265,14 @@ footer {
 
 
 
-@media (max-width: 992px) {
+@media (max-width: 902px) {
 	header {
 		background-position-x: 50%;
 		background-position-y: 100%;
 		background-size: 80%;
 
 		h1 {
-			font-size: 5em;
+			font-size: 6em;
 		}
 		h4 {
 			font-size: 2em;
@@ -287,12 +295,18 @@ footer {
 					padding: 5% 0%;
 				}
 			}
+			a:first-child{
+				border-radius: 25px 25px 0 0;
+			}
+			a:last-child{
+				border-radius: 0 0 0 0;
+			}
 		}
 	}
 	#searchBar {
 		width: 90%;
-		padding-top: 6%;
-		padding-bottom: 2%;
+		padding-top: 1%;
+		padding-bottom: 1%;
 
 		form {
 			width: 100%;
@@ -310,11 +324,11 @@ footer {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 668px) {
 	header {
 		background-position-x: 50%;
 		background-position-y: 100%;
-		background-size: 90%;
+		background-size: 100%;
 
 		h1 {
 			font-size: 4em;
@@ -344,12 +358,14 @@ footer {
 	}
 	#searchBar {
 		width: 90%;
-		padding-top: 6%;
-		padding-bottom: 2%;
+		padding-top: 1%;
+		padding-bottom: 1%;
 
 		form {
 			width: 100%;
 			margin-left: 3%;
+
+			
 		}
 	}
 
