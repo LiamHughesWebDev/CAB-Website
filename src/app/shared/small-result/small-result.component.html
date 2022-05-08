@@ -1,9 +1,14 @@
 <section>
-    <a href="{{ RecommendedBook[0].items[1].volumeInfo.previewLink }}">
-        <img src="{{ RecommendedBook[0].items[1].volumeInfo.imageLinks.smallThumbnail }}">
-        <h1>{{ RecommendedBook[0].items[1].volumeInfo.title }}</h1>
-        <h2>By: {{ RecommendedBook[0].items[1].volumeInfo.Authors[0] }}</h2>
-        <h3>{{ RecommendedBook[0].items[1].volumeInfo.description }}</h3>
+    <a href="{{ RecommendedBook[0].items[0].volumeInfo.previewLink }}">
+        <img src="{{ RecommendedBook[0].items[0].volumeInfo.imageLinks.smallThumbnail }}">
+        <h1>{{ RecommendedBook[0].items[0].volumeInfo.title }}</h1>
+        <h2>{{ RecommendedBook[0].items[0].volumeInfo.authors[0] }}</h2>
+        <div>
+            <h4>{{ RecommendedBook[0].items[0].volumeInfo.title }}</h4>
+            <h5>By: {{ RecommendedBook[0].items[0].volumeInfo.authors[0] }}</h5>
+            
+            <p>{{ RecommendedBook[0].items[0].volumeInfo.description }}</p>
+        </div>
     </a>
     
 </section>

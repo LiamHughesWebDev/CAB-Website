@@ -1,69 +1,173 @@
 section {
 	display: flex;
 	flex-direction: column;
-	background-color: #959595;
+	transform: scale (1,1);
+	
 	padding-bottom: 3%;
-	border-radius: 2%;
+	border-radius: 1%;
 	margin: 5% auto;
-	box-shadow: 15px 15px 8px rgba(63, 57, 57, 75%);
 
-	img {
-		width: 100%;
-		height: 30em;
-		margin: auto;
-	}
+	
 
-	h1 {
-		margin: 1% 3%;
-		font-size: 2.5em;
-		text-align: center;
-		text-decoration: underline;
+
+	a{
+		text-decoration: none!important;
+		display: flex;
+		flex-direction: column;
+		
+		img {
+			display: block;
+			width: 100%;
+			height: 30em;
+			margin: 0 auto;
+			border-radius: 5%;
+			box-shadow: 15px 15px 8px rgba(63, 57, 57, 75%);
+			text-align: center;
+		}
+		h1 {
+			margin: 3% 3%;
+			font-size: 1.75em;
+			text-align: center;
+			text-decoration: underline;
+			max-height: 2.5em;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		h2 {
+			font-style: italic;
+			color: black;
+			text-align: center;
+			font-size: 1em;
+			padding-top: 2%;
+			
+		}
+		h3 {
+			position: absolute;
+			min-height: 10em;
+			max-height: 15em;
+			max-width: 13em;
+			margin: 250% 0 0 5%;
+			padding: .5em;
+
+			display: none;
+			overflow-y: scroll;
+			scrollbar-width: none;
+
+			color: black;
+			text-align: center;
+			font-size: 0.9em;
+			font-weight: normal;
+			text-decoration: none;
+
+	
+		}
+		h3::-webkit-scrollbar{
+			width: 12px;
+		}
+		h3::-webkit-scrollbar-track {
+			box-shadow: inset 0 0 5px gray; 
+			border-radius: 10px;
+		}
+		h3::-webkit-scrollbar-thumb {
+			background: gray; 
+			border-radius: 10px;
+		}
+		h3::-webkit-scrollbar-thumb:hover {
+			background: rgb(90, 90, 90); 
+		  }
+		
 	}
-	h2 {
-		color: black;
-		text-align: center;
-		font-size: 2em;
-		padding-top: 2%;
-	}
-	h3 {
-		color: black;
-		font-size: 1em;
-		text-align: center;
-		font-weight: normal;
-		font-style: oblique;
-		margin-top: 2%;
-		text-decoration: none;
-	}
-	button {
-		display: block;
-		background-color: #205fbd;
-		font-size: 2em;
-		border: none;
-		padding: 2% 2%;
-		margin: 2% auto;
-		color: white;
-		text-decoration: underline;
-		border-radius: 5%;
-	}
+	
 }
+
+
 section:hover {
-	transform: scale(1.1, 1.1);
+	transform: scale(1.2, 1.2);
+	transition: transform 0.5s;
+
+	height: 150%;
+
+	a{
+		
+		h3{
+			display: block;
+			background-color: whitesmoke;
+			border-radius: 5%;
+		}
+	
+	}
+
+	
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 600px) {
 	section {
+		flex-direction: column;
+
+		a{
+		
+
+			img{
+				display: block;
+				height: 5em;
+				width: 100%;
+				margin: auto;
+			}
+			h2{
+				text-align: center;
+				padding-top: 0%;
+			}
+		}
+	
 	}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
+	section {
+		flex-direction: column;
+
+		a{
+		
+
+			img{
+				display: block;
+				height: 50%;
+				width: 50%;
+				margin: auto;
+			}
+			h2{
+				text-align: center;
+			}
+		}
+	
+	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 992px) {
+	section {
+		flex-direction: column;
+	
+		a{
+			
+		
+
+			img{
+				display: block;
+				height: 25%;
+				width: 25%;
+				margin: auto;
+			}
+			h2{
+				text-align: center;
+			}
+		}
+	
+	}
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+@media only screen and (max-width: 1200px) {
 }

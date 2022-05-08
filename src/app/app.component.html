@@ -19,7 +19,7 @@
     </a>
 
     <a routerLink="/mybooks" *ngIf="isAuthenticated" class="books">
-      <li> My&nbsp;Books</li>
+      <li>My&nbsp;Account</li>
     </a>
 
     <a routerLink="/login" *ngIf="!isAuthenticated" class="log">
@@ -27,7 +27,7 @@
     </a>
 
     <a (click)="onLogout()" style="cursor: pointer;" *ngIf="isAuthenticated" class="log">
-      <li> Logout</li>
+      <li>Logout</li>
     </a>
 
   </ul>
@@ -38,7 +38,7 @@
     <div class="container">
       
       <input type="text" class="input" placeholder="What are you looking for?" autocomplete="on" ngModel name="search" />
-      <img src="../assets/images/icons8-search.svg">
+      <button type="submit"><img src="../assets/images/icons8-search.svg"></button>
     </div>
   </form>
 </div>
@@ -75,8 +75,10 @@
   </main>
 
   <aside>
-    <p> &copy; Copyright 1997 - 2020 CAB Inc, Conditions of Use Privacy Policy Interest-based Ads Cookies United States
+    <p style="text-decoration: underline;">This site does not actually contain any Audio Books. It is only connected to Google Books API.</p>
+    <p> &copy; Fake Copyright 2022 CAB Inc, Conditions of Use Privacy Policy Interest-based Ads Cookies United States
       (English)</p>
+      
   </aside>
 
 </footer>

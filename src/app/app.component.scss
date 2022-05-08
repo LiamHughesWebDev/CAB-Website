@@ -118,14 +118,20 @@ nav {
 			
 			
 
-			img {
-				position: fixed;
-				height: 100%;
-				cursor: pointer;
-				
+			button {
+				visibility: hidden;
 
-				background-color: rgb(200, 200, 200);
-				border-radius: 0 10px 10px 0;
+				img {
+					visibility: visible!important;
+					position: fixed;
+					height: 100%;
+					cursor: pointer;
+					top: 0;
+					margin-left: -3%;
+	
+					background-color: rgb(200, 200, 200);
+					border-radius: 0 10px 10px 0;
+			}
 			}
 
 			input {

@@ -3,29 +3,33 @@ main {
 	margin: auto;
 	display: flex;
 	flex-direction: column;
-	background-color: white;
+	background-color: #f7bd2d;
 
 
 	aside{
 		display: flex;
 		flex-direction: column;
+		background-color: white;
 
 		width: 30%;
+		height: 15%;
 		margin: auto;
 		margin-bottom: 3%;
 		margin-top: 1%;
 
-		border: 2px solid lightgrey;
-		padding: 1%;
+		border: 2px solid gray;
+
+		
 
 		
 		h2{
 			text-align: center;
+			padding-top: 3%;
 		}
 		button{
 			width: 40%;
 			height: 2.5em;
-			margin: 3% auto;
+			margin: 5% auto;
 			background-color: #d03a67;
 			border-radius: 4px;
 			color: white;
@@ -35,20 +39,23 @@ main {
 	}
 
 	section {
-		border-left: 2px solid lightgrey;
-		border-right: 2px solid lightgrey;
-
+		background-color: white;
 
 		display: flex;
 		flex-direction: column;
 		align-content: center;
 
 		width: 40%;
-		margin: 3% auto;
+		margin: 1% auto;
+		margin-top: 3%;
+
+		border: 2px solid gray;
+		border-radius: 5%;
 
 		// background-color: red;
 
 		h1 {
+			padding: 3%;
 			margin: auto;
 			font-size: 3em;
 		}
@@ -64,14 +71,17 @@ main {
 			margin: auto;
 			width: 60%;
 
+			
+
 			label {
 				font-size: 2em;
-				margin: 4% auto 1% auto;
+				margin: 4% 0 1% -5%;
 			}
 
 			input {
-				width: 80%;
-				margin: auto;
+				font-size: 1.25em;
+				width: 100%;
+				margin:  3% auto;
 				padding: 3% 3%;
 				background-color: azure;
 				border: 1px solid darkgray; 
@@ -95,6 +105,8 @@ main {
 			margin-bottom: 3%;
 			text-align: center;
 			font-size: 1.3em;
+
+			
 		}
 
 		.error{

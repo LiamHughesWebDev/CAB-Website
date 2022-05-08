@@ -11,6 +11,9 @@ export class SmallResultComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(this.RecommendedBook);
   }
   @Input() RecommendedBook;
+
+  
 }

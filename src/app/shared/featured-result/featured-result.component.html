@@ -1,8 +1,8 @@
 <section>
-    <a href="{{ FeaturedBook[0].items[0].volumeInfo.previewLink }}">
-        <img src="{{ FeaturedBook[0].items[0].volumeInfo.imageLinks.smallThumbnail }}">
-
-        <h2>${{ FeaturedBook[0].items[0].saleInfo.listPrice.amount }}</h2>
-        <button>Buy Now!</button>
+    <a href="{{ FeaturedBook[0].items[1].volumeInfo.previewLink }}">
+        <img src="{{ FeaturedBook[0].items[1].volumeInfo.imageLinks.smallThumbnail }}">
+        <h1>{{ FeaturedBook[0].items[1].volumeInfo.title }}</h1>
+        <h2>{{ FeaturedBook[0].items[1].volumeInfo.authors[0] }}</h2>
+        <h3>{{ FeaturedBook[0].items[1].volumeInfo.description }}</h3>
     </a>
 </section>
