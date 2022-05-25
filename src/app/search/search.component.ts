@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../books.service';
 
@@ -8,22 +8,25 @@ import { BookService } from '../books.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  @ViewChild('section') public Section: ElementRef;
   searchedBook= "";
-  Results = [];
+  FeaturedBook = [];
   Books = []
-  
+  isLoading = false;
 
   constructor(private bookService: BookService, private route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
     this.searchedBook = this.route.snapshot.params['book'];
-    var books = this.bookService.getBook(this.searchedBook);
+    var getBooks = this.bookService.getBook(this.searchedBook);
     setTimeout( () => {
-      this.Results.push(books);
-      console.log(this.Results);
-      this.Books = this.Results[0][0].items;
-      console.log(this.Books);
+      this.FeaturedBook.push(getBooks);
+      console.log(this.FeaturedBook);
+
     }, 1000)
   }
+
+
+    
 }

@@ -1,8 +1,25 @@
-<section>
-    <a href="{{ FeaturedBook[0].items[1].volumeInfo.previewLink }}">
-        <img src="{{ FeaturedBook[0].items[1].volumeInfo.imageLinks.smallThumbnail }}">
-        <h1>{{ FeaturedBook[0].items[1].volumeInfo.title }}</h1>
-        <h2>{{ FeaturedBook[0].items[1].volumeInfo.authors[0] }}</h2>
-        <h3>{{ FeaturedBook[0].items[1].volumeInfo.description }}</h3>
-    </a>
+<section #section (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+    <a  href="{{ FeaturedBook[0].items[0].volumeInfo.previewLink }}" id="desc">
+        <img src="{{ FeaturedBook[0].items[0].volumeInfo.imageLinks.smallThumbnail }}" alt="">
+        <h1>{{ FeaturedBook[0].items[0].volumeInfo.title }}</h1>
+        <h2>{{ FeaturedBook[0].items[0].volumeInfo.authors[0] }}</h2>
+    </a> 
+
+    <div >
+        <a href="{{ FeaturedBook[0].items[0].volumeInfo.previewLink }}">
+            <h4>{{ FeaturedBook[0].items[0].volumeInfo.title }}</h4>
+            <h5>By: {{ FeaturedBook[0].items[0].volumeInfo.authors[0] }}</h5>
+        </a>
+        <p>{{ FeaturedBook[0].items[0].volumeInfo.description }}</p>
+        <h3>{{ FeaturedBook[0].items[0].saleInfo.listPrice.amount }}&nbsp;</h3>
+        
+        <button mat-raised-button>Add to My Books</button>
+        <button mat-raised-button (click)="hideDesc()" id="hide">Hide</button>
+       
+    </div>
+    
+    <aside>
+        <button (click)="showDesc()" mat-raised-button> Show more </button>
+    </aside>
+
 </section>

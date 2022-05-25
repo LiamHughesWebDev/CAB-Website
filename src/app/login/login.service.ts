@@ -23,7 +23,7 @@ export class LoginService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  signup(email: string, password: string) {
+  signup(email: string, password: string, fName: string, lName: string, uName: string) {
     return this.http //returns user to component
       .post<AuthResponseData>( //post requests expects interface data back from Firebase API post
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.LoginAPIKey,

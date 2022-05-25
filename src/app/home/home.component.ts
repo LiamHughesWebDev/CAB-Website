@@ -17,50 +17,56 @@ export class HomeComponent implements OnInit {
 
   constructor(private BookService: BookService) {}
   
+  loaded1 = false;
+  loaded2 = false;
   isLoading = false;
 
   ngOnInit(): void {
 
-    this.getBooks();
+    this.organizeBooks();
 
     
 
   }
+  async getBooks(element){
+    let book = this.BookService.getBook(element);
+  
+    return book;
+  }
   
 
-  getBooks(){
-    
- 
-    this.isLoading = true;
-    console.log(this.isLoading);
+  organizeBooks(){
 
     this.FeaturedBookNames.forEach(element => {
-
-       
-      var book = this.BookService.getBook(element);
-      setTimeout(() => {
+      this.getBooks(element).then( book => {
         this.FeaturedBook.push(book);
-      }, 1000);
-      console.log("added");
+        console.log(book);
+      });
+      this.loaded1 = true;
     });
 
+    
     this.RecommendedBookNames.forEach(element => {
-      var book = this.BookService.getBook(element);
-      setTimeout(() => {
+      this.getBooks(element).then( book => {
         this.RecommendedBook.push(book);
-      }, 1000);
- 
-      
-   
+        console.log("added");
+      });
+      this.loaded2 = true;
     });
-    
-    setTimeout( ()=> {this.isLoading = false; console.log(this.isLoading);}, 1000);
 
 
-    console.log(this.FeaturedBook);
-    console.log(this.RecommendedBook);
 
-    
+    if(this.loaded1 === true && this.loaded2 === true){ 
+      this.FeaturedBook = this.FeaturedBook[0].items[0];
+      
+      this.isLoading = false;
+
+    }
+
+    setTimeout(() => {
+      console.log(this.FeaturedBook);
+      console.log(this.RecommendedBook);
+    }, 2000);
   }
 
  

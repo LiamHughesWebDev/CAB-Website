@@ -1,11 +1,6 @@
-<main>
-    <a
-        *ngFor="let book of Books"
-        href="{{ book.volumeInfo.previewLink }}">
-    <img src="{{ book.volumeInfo.imageLinks.smallThumbnail }}">
-    
-    <h2>${{book.saleInfo.listPrice.amount }}</h2>
-    <button>Click to Preview!</button>
-    </a>
-</main>
 
+<main *ngIf="!isLoading">
+    <app-featured-result  *ngFor="let Book of FeaturedBook"
+    [FeaturedBook]="Book"
+    class="section"></app-featured-result>
+</main>

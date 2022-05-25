@@ -17,11 +17,11 @@ section {
 		
 		img {
 			display: block;
-			width: 100%;
+			width: 20em;
 			height: 30em;
 			margin: 0 auto;
 			border-radius: 5%;
-			box-shadow: 15px 15px 8px rgba(63, 57, 57, 75%);
+			box-shadow: -15px 15px 8px rgba(63, 57, 57, 75%);
 			text-align: center;
 		}
 		h1 {
@@ -37,65 +37,101 @@ section {
 			font-style: italic;
 			color: black;
 			text-align: center;
-			font-size: 1em;
+			font-size: 1.35em;
 			padding-top: 2%;
-			
 		}
-		h3 {
-			position: absolute;
-			min-height: 10em;
-			max-height: 15em;
-			max-width: 13em;
-			margin: 250% 0 0 5%;
-			padding: .5em;
+		
+	}
+	div {
+		position: absolute;
+		min-height: 5em;
+		max-height: 20em;
+		width: 115%;
 
-			display: none;
-			overflow-y: scroll;
-			scrollbar-width: none;
+		border-top-left-radius: 5%;
+		border-bottom-left-radius: 5%;
+		border-top-right-radius: 2%;
+		border-bottom-right-radius: 2%;
+		
+		margin-top: 26em;
+		margin-left: -10%;
+		padding: .5em;
 
-			color: black;
-			text-align: center;
-			font-size: 0.9em;
-			font-weight: normal;
-			text-decoration: none;
-
+		display: none;
+		overflow-y: scroll;
 	
+		color: black;
+		text-align: center;
+		font-size: 1.2em;
+		font-weight: normal;
+		text-decoration: none;
+
+		box-shadow: -15px 15px 8px rgba(63, 57, 57, 75%);
+		
+		h4{
+			padding: 0 1em .25em 1em;
+			font-size: 1.25em;
 		}
-		h3::-webkit-scrollbar{
+		h5{
+			padding: 0 1em 1em 1em;
+			font-size: 0.75em;
+			font-style: italic;
+			text-decoration: underline;
+		}
+		p{
+			padding: 0 1em 0 1em;
+			font-size: 1em;
+		}
+		#hide{
+			margin: 1em;
+		}
+	
+
+	}
+		div::-webkit-scrollbar{
 			width: 12px;
 		}
-		h3::-webkit-scrollbar-track {
+		div::-webkit-scrollbar-track {
 			box-shadow: inset 0 0 5px gray; 
 			border-radius: 10px;
 		}
-		h3::-webkit-scrollbar-thumb {
+		div::-webkit-scrollbar-thumb {
 			background: gray; 
 			border-radius: 10px;
 		}
-		h3::-webkit-scrollbar-thumb:hover {
+		div::-webkit-scrollbar-thumb:hover {
 			background: rgb(90, 90, 90); 
-		  }
-		
-	}
+		}
 	
+	aside{
+		display:none;
+		margin:auto;
+		margin-top: 5em;
+	}
 }
 
 
-section:hover {
-	transform: scale(1.2, 1.2);
+.hover {
+	transform: scale(1.2, 1.2) perspective(1px) translateZ(0);
 	transition: transform 0.5s;
 
-	height: 150%;
+	backface-visibility: hidden;
+	-webkit-font-smoothing: subpixel-antialiased;
 
-	a{
-		
-		h3{
+	height: 150%;
+	
+		div{
 			display: block;
 			background-color: whitesmoke;
-			border-radius: 5%;
+			
+			aside{
+				display: block;
+			}
 		}
 	
-	}
+		aside{
+			display: none;
+		}
 
 	
 }
@@ -106,12 +142,10 @@ section:hover {
 		flex-direction: column;
 
 		a{
-		
-
 			img{
 				display: block;
-				height: 5em;
-				width: 100%;
+				height: 15em;
+				width: 10em;
 				margin: auto;
 			}
 			h2{
@@ -119,12 +153,17 @@ section:hover {
 				padding-top: 0%;
 			}
 		}
+		div{
+			margin-top: 12em;
+		}
 	
+		
 	}
+	
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) and (min-width: 600px) {
 	section {
 		flex-direction: column;
 
@@ -133,41 +172,56 @@ section:hover {
 
 			img{
 				display: block;
-				height: 50%;
-				width: 50%;
+				height: 20em;
+				width: 15em;
 				margin: auto;
 			}
 			h2{
 				text-align: center;
 			}
 		}
+		div{
+			margin-top: 16em;
+			width: 90%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
 	
 	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1250px) and (min-width: 768px) {
 	section {
 		flex-direction: column;
 	
 		a{
-			
 		
-
 			img{
 				display: block;
-				height: 25%;
-				width: 25%;
+				height: 25em;
+				width: 20em;
 				margin: auto;
 			}
 			h2{
 				text-align: center;
 			}
 		}
+		div{
+			margin-top: 21em;
+		}
+		
 	
 	}
+	
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (max-width: 1200px) {
+@media (hover: none) and (pointer: coarse) {
+	section{
+		aside{
+			display: block;
+		}
+	}
 }

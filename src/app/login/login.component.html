@@ -1,37 +1,154 @@
 <main>
-    <section>
-        <h1>{{ isLoginMode ? 'Login' : 'Sign-Up' }}</h1>
+    <section *ngIf="isLoginMode && !isResetting">
+        <h1>Login</h1>
 
-        <aside class="error" *ngIf="error"><p>{{ error }}</p></aside>
+        <aside class="error" *ngIf="error"><p>{{ errorMessage }}</p></aside>
 
         <aside *ngIf="isLoading">
             <app-loading-spinner></app-loading-spinner>
         </aside>
 
-        <form #LoginForm="ngForm" (ngSubmit)="onSubmit(LoginForm)" *ngIf="!isLoading">
-         
-            <div id="pg1">
-           
-                <input type="email" id="email" ngModel name="email" placeholder="Email" required email>
+        <form #LoginForm="ngForm" (ngSubmit)="onLogin(LoginForm)" *ngIf="!isLoading">
+            <mat-form-field appearance="fill" color="primary">
+                <mat-label>Email</mat-label>
+                <input matInput ngModel name="title" name="email" autocomplete="email">
+            </mat-form-field>
 
-               
-                <input type="Password" id="Password" ngModel name="password" placeholder="Password" required password minlength="6">
-            </div>
-            <div id="pg2">
-                <label *ngIf="!isLoginMode" for="fName">First Name</label>
-                <input *ngIf="!isLoginMode" type="text" id="fName" ngModel name="firstName"  >
+            <mat-form-field appearance="fill" color="primary">
+                <mat-label>Password</mat-label>
+                <input matInput ngModel name="title" name="password" autocomplete="current-password" type="password">
+            </mat-form-field>
 
-                <label *ngIf="!isLoginMode" for="lName">Last Name</label>
-                <input *ngIf="!isLoginMode" type="text" id="lName" ngModel name="lastName"  >
-            </div>
+            <button mat-raised-button class="primary" type="submit">Login</button>
 
-            <button type="submit" [disabled]="!LoginForm.valid">{{ isLoginMode ? 'Sign-In' : 'Sign Up!' }}</button>
+            <button mat-raised-button class="accent" (click)="onSwitchReset()">Forgot Password?</button>
         </form>
     </section>
 
+
+    <section *ngIf="isLoginMode && isResetting">
+      <h1>Password Reset</h1>
+
+      <aside class="error" *ngIf="error"><p>{{ errorMessage }}</p></aside>
+
+      <aside *ngIf="isLoading">
+          <app-loading-spinner></app-loading-spinner>
+      </aside>
+
+      <form #PaswordReset="ngForm" *ngIf="!isLoading">
+        <mat-form-field appearance="fill" color="primary">
+          <mat-label>Enter your Email Address</mat-label>
+          <input matInput name="resetEmail" name="email" id="resetEmail">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" color="primary" *ngIf="sentEmail">
+          <mat-label>Enter the code from your Email</mat-label>
+          <input matInput name="resetCode" name="code" id="resetCode">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" color="primary" *ngIf="sentEmail">
+          <mat-label>Enter your new password</mat-label>
+          <input matInput name="resetCode" name="code" id="resetPassword">
+        </mat-form-field>
+  
+        <button mat-raised-button class="primary" (click)="submitPasswordReset()"  *ngIf="sentEmail">Submit</button>
+
+        <button mat-raised-button class="primary" (click)="sendResetEmail()"  *ngIf="!sentEmail">Send</button>
+
+        <button mat-raised-button class="accent" (click)="onSwitchReset()">Forgot Password?</button>
+
+    </form>
+
+  </section>
+
+
+
+    <!-- Signing up -->
+
+
+    <section *ngIf="!isLoginMode">
+        <h1>Sign-up</h1>
+
+        <aside class="error" *ngIf="error"><p>{{ errorMessage }}</p></aside>
+
+        <aside *ngIf="isLoading">
+            <app-loading-spinner></app-loading-spinner>
+        </aside>
+
+        <mat-horizontal-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Login Details</ng-template>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" type="email"formControlName="email" required>
+                </mat-form-field>
+                <br/>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="Password" type="password" formControlName="password" required>
+                </mat-form-field>
+                
+                <button mat-raised-button class="primary" matStepperNext>Next</button>
+                
+              </form>
+            </mat-step>
+
+            <mat-step [stepControl]="secondFormGroup">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Basic Info</ng-template>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Display Name</mat-label>
+                    <input matInput placeholder="Username" formControlName="uName" required>
+                  </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>First Name</mat-label>
+                  <input matInput placeholder="First Name" formControlName="fName" required>
+                </mat-form-field>
+                <br/>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput placeholder="Last Name" formControlName="lName" required>
+                </mat-form-field>
+                <br/>
+
+                <div class="next-back-buttons">
+                    <button mat-raised-button class="accent" matStepperPrevious>Back</button>
+                    <button mat-raised-button class="primary" matStepperNext>Next</button>
+                </div>
+                
+                
+              </form>
+            </mat-step>
+
+            <mat-step>
+              <ng-template matStepLabel>Review</ng-template>
+
+              <mat-list>
+               <mat-list-item> <strong>Email:</strong> <p>{{ this.firstFormGroup.value.email }}</p></mat-list-item>
+               <mat-list-item> <strong>Username:</strong> <p>{{ this.secondFormGroup.value.uName }}</p></mat-list-item>
+               <mat-list-item> <strong>Fist Name:</strong> <p>{{ this.secondFormGroup.value.fName }}</p></mat-list-item>
+               <mat-list-item> <strong>Last Name:</strong> <p>{{ this.secondFormGroup.value.lName }}</p></mat-list-item>
+              </mat-list>
+            
+              <div>
+                <button mat-raised-button class="accent" matStepperPrevious>Back</button>
+                <button mat-raised-button class="danger" (click)="stepper.reset()">Reset</button>
+                <button mat-raised-button class="primary" (click)="onRegister()">Submit</button>
+              </div>
+            </mat-step>
+          </mat-horizontal-stepper>
+        
+    </section>
+
     <aside>
-        <h2>{{ isLoginMode ? 'Do you not have an account?' : 'Already have an account?' }}</h2>
-        <button class="switch" (click)="onSwitchMode()" >{{ isLoginMode ? 'Click to Sign Up!' : 'Click to Login' }}</button>
+        <h2>{{ isLoginMode ? 'Need an account?' : 'Already have an account?' }}</h2>
+        <button mat-button (click)="onSwitchLogin()" >{{ isLoginMode ? 'Click here to Sign Up!' : 'Click here to Login' }}</button>
     </aside>
 
     
