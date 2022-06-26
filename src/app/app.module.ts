@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BookService } from './books.service';
 import { LoginService } from './login/login.service'
@@ -17,6 +17,11 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
 import { MyBooksComponent } from './my-books/my-books.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule} from '@angular/material/card';
@@ -27,6 +32,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatRadioModule } from '@angular/material/radio';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +64,11 @@ import { MatRadioModule } from '@angular/material/radio';
     MatFormFieldModule,
     MatSelectModule,
     MatStepperModule,
-    MatRadioModule
+    MatRadioModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule // storage
   ],
   providers: [BookService, LoginService],
   bootstrap: [AppComponent]

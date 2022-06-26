@@ -14,19 +14,19 @@
       <li>Browse </li>
     </a>
    
-    <a routerLink="/deals" *ngIf="!isAuthenticated" class="books"> 
+    <a routerLink="/deals" *ngIf="!(afAuth.authState | async)" class="books"> 
       <li>Sign&nbsp;up</li>
     </a>
 
-    <a routerLink="/mybooks" *ngIf="isAuthenticated" class="books">
+    <a routerLink="/mybooks" *ngIf="(afAuth.authState | async)" class="books">
       <li>My&nbsp;Account</li>
     </a>
 
-    <a routerLink="/login" *ngIf="!isAuthenticated" class="log">
+    <a routerLink="/login" *ngIf="!(afAuth.authState | async)" class="log">
       <li> Login</li>
     </a>
 
-    <a (click)="onLogout()" style="cursor: pointer;" *ngIf="isAuthenticated" class="log">
+    <a (click)="afAuth.signOut()" style="cursor: pointer;" *ngIf="(afAuth.authState | async)" class="log">
       <li>Logout</li>
     </a>
 

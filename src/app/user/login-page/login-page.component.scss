@@ -1,0 +1,169 @@
+.primary{
+	background-color: #205fbd;
+}
+.accent{
+	background-color: #d03a67;
+}
+.danger{
+	background-color: #ff0000;
+}
+
+main {
+	width: 80%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+
+
+	aside{
+		display: flex;
+		flex-direction: column;
+
+		width: 30%;
+		margin: auto;
+		margin-bottom: 3%;
+		margin-top: 1%;
+
+		border-top: 2px solid lightgrey;
+		// background-color: lightgray;
+		padding: 1%;
+
+		
+		h2{
+			font-size: 2em;
+			text-align: center;
+			
+		}
+		button{
+			height: 2.5em;
+			margin: 3% auto;
+			background-color: lightgray;
+		}
+	}
+
+	section {
+		
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+
+		width: 60%;
+		margin: 3% auto;
+		padding: 0 3%;
+
+		border-left: 2px solid lightgrey;
+		border-right: 2px solid lightgrey;
+
+		div{
+			button{
+				width: auto;
+
+				img{
+					width: 25px;
+					height: 25px;
+				}
+			}
+		}
+
+		h1 {
+			font-family: PlexSerif-bold;
+			margin: 4% auto;
+			font-size: 3em;
+		}
+
+		h2{
+			margin: auto;
+			font-size: 3em;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			margin: auto;
+			margin-top: 3%;
+			width: 60%;
+
+			p{
+				text-align: center;
+				padding: 1em;
+			}
+			button{
+				color: white;
+			}
+		}
+
+
+		div{
+			display: flex;
+			justify-content: space-evenly;
+		}
+
+		mat-list{
+			width: 60%;
+			display: flex;
+			flex-direction: column;
+			margin: auto;
+			
+			mat-item{
+				width: 100%;
+				justify-content: space-between;
+			}
+
+		}
+
+		button{
+			width: 10em;
+			margin: auto;
+			margin-top: 3%;
+			
+		}
+
+		aside{
+			width: 40%;
+			margin: auto;
+			margin-bottom: 3%;
+			text-align: center;
+			font-size: 1.3em;
+		}
+		mat-horizontal-stepper{
+
+			.next-back-buttons{
+				display: flex;
+				flex-direction: row;
+
+				button{
+					width: 35%;
+				}
+			}
+		}
+
+		.error{
+			border: 3px solid red;
+		}
+	}
+}
+@media (max-width: 768px) {
+	main{
+		width: 100%;
+
+		section{
+			width: 100%;
+		}
+		aside{
+			width: 70%;
+		}
+	}
+}
+@media (max-width: 992px) {
+	main{
+		width: 90%;
+
+		section{
+			width: 80%;
+		}
+		aside{
+			width: 70%;
+		}
+	}
+}

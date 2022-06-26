@@ -7,8 +7,10 @@ import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  {
+    path: 'login', loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+  },
   { path: 'search/:book', component: SearchComponent },
-  { path: 'login', component: LoginComponent},
   { path: 'mybooks', component: MyBooksComponent}
 ];
 
