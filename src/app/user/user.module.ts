@@ -17,9 +17,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatRadioModule } from '@angular/material/radio';
 import { GoogleSigninDirective } from './google-signin.directive';
+import { AccountPageComponent } from './account-page/account-page.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
-  declarations: [LoginPageComponent, GoogleSigninDirective],
+  declarations: [LoginPageComponent, GoogleSigninDirective, AccountPageComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
@@ -34,7 +42,11 @@ import { GoogleSigninDirective } from './google-signin.directive';
     MatFormFieldModule,
     MatSelectModule,
     MatStepperModule,
-    MatRadioModule
+    MatRadioModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule // storage
   ]
 })
 export class UserModule { }

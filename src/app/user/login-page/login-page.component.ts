@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -15,11 +16,11 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private router: Router, 
     private _formBuilder: FormBuilder,
-    public afAuth: AngularFireAuth) { }
+    public afAuth: AngularFireAuth,
+    private AuthService: AuthService) { }
 
 
     //variables
-  private userSub: Subscription;
   isAuthenticated: boolean = false;
 
   isResetting: boolean = false;
@@ -38,6 +39,7 @@ export class LoginPageComponent implements OnInit {
   signUpUserInfo: FormGroup;
 
   ngOnInit(): void {
+    
 
     this.loginForm = this._formBuilder.group({
       email: ['', Validators.required],
@@ -72,13 +74,24 @@ export class LoginPageComponent implements OnInit {
 
     try {
       if (this.isLoginMode === true) {
-        await this.afAuth.signInWithEmailAndPassword(this.loginForm.value.email.trim(), this.loginForm.value.password);
+
+        const email = this.loginForm.value.email.trim();
+        const password = this.loginForm.value.password;
+        this.AuthService.loginUser(email, password);
+      
       }
       if (this.isLoginMode === false) {
-        await this.afAuth.createUserWithEmailAndPassword(this.signUpLoginInfo.value.email.trim(), this.signUpLoginInfo.value.password);
-      }
-     
-    } catch (err) {
+        const email = this.signUpLoginInfo.value.email.trim();
+        const password = this.signUpLoginInfo.value.password;
+
+        const fName= this.signUpUserInfo.value.fName;
+        const lName = this.signUpUserInfo.value.lName;
+        const UserName = this.signUpUserInfo.value.uName;
+        
+        this.AuthService.SignUpUser(email, password, fName, lName, UserName);
+
+        };
+      }catch (err) {
       this.isError = true;
       this.errorMessage = err;
     }

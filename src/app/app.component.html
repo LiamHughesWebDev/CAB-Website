@@ -14,11 +14,11 @@
       <li>Browse </li>
     </a>
    
-    <a routerLink="/deals" *ngIf="!(afAuth.authState | async)" class="books"> 
+    <a routerLink="/login" *ngIf="!(afAuth.authState | async)" class="books"> 
       <li>Sign&nbsp;up</li>
     </a>
 
-    <a routerLink="/mybooks" *ngIf="(afAuth.authState | async)" class="books">
+    <a routerLink="/Account" *ngIf="(afAuth.authState | async)" class="books">
       <li>My&nbsp;Account</li>
     </a>
 

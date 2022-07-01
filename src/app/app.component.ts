@@ -17,17 +17,10 @@ export class AppComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   private userSub: Subscription;
 
-  constructor(private BookService: BookService, private router: Router, private loginService: LoginService, public afAuth: AngularFireAuth) { }
+  constructor(private BookService: BookService, private router: Router, public afAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
-    this.userSub = this.loginService.user.subscribe(user => {
-      this.isAuthenticated = !!user; //if user exists, this returns true
-      
-      // console.log(!user);
-      // console.log(!!user);
-    });
-
-    this.loginService.autoLogin();
+    
   }
 
   onSearch(f) {
@@ -39,12 +32,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   }
 
-  onLogout(){
-    this.loginService.logout();
-  }
+
 
   ngOnDestroy(){
-    this.userSub.unsubscribe();
+
   }
  
 
