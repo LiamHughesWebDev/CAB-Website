@@ -11,22 +11,40 @@ export class SearchComponent implements OnInit {
   @ViewChild('section') public Section: ElementRef;
   searchedBook= "";
   FeaturedBook = [];
-  Books = []
-  isLoading = false;
+  books = {};
+  isLoading = true;
 
   constructor(private bookService: BookService, private route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
-    this.searchedBook = this.route.snapshot.params['book'];
-    var getBooks = this.bookService.getBook(this.searchedBook);
-    setTimeout( () => {
-      this.FeaturedBook.push(getBooks);
-      console.log(this.FeaturedBook);
-
-    }, 1000)
+    this.getBook();
   }
 
+  getBook(){
+    this.searchedBook = this.route.snapshot.params['book'];
+    
+    this.bookService.getBook(this.searchedBook).then((res)=>{
+      this.FeaturedBook.push(res);
+
+      setTimeout(() => {
+        
+        this.FeaturedBook = this.FeaturedBook[0][0].items;
+        console.log(this.FeaturedBook);
+        
+      }, 1000);
+  
+
+      
+    }, (err)=>{
+      console.log("error");
+    });
+
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
+    
+  }
 
     
 }

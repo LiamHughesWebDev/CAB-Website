@@ -3,16 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-interface book{
+export interface book{
   
     "kind": String,
     "id": String,
     "etag": String,
     "selfLink": String,
-    "volumeInfo": {
+    "volumeInfo": {x
         "title": String,
         "authors": [
-          String
+          string
         ],
         "publisher": String,
         "publishedDate": String,
@@ -110,7 +110,7 @@ export class BookService {
 
     constructor(private http: HttpClient) { }
 
-    getBook (bookName) {
+    async getBook (bookName) {
         const searchphrase: string = 'https://www.googleapis.com/books/v1/volumes?q=';
         const filter: string = '&filter=ebooks'
         const key: string = '&key=' + environment.BookAPIKey;
@@ -118,10 +118,16 @@ export class BookService {
 
         this.http
             .get(searchphrase + bookName + filter + key)
-            .subscribe(search => {
-                const books = search;
+            .subscribe((res) => {
+                const books = res;
                 searchResults.push(books);
+            },(err)=>{
+                console.log(err);
             });
         return searchResults;
+    }
+
+    storeBook(){
+        console.log("stored");
     }
 }

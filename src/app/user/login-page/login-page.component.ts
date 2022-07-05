@@ -77,7 +77,7 @@ export class LoginPageComponent implements OnInit {
 
         const email = this.loginForm.value.email.trim();
         const password = this.loginForm.value.password;
-        this.AuthService.loginUser(email, password);
+        await this.AuthService.loginUser(email, password);
       
       }
       if (this.isLoginMode === false) {
@@ -88,7 +88,7 @@ export class LoginPageComponent implements OnInit {
         const lName = this.signUpUserInfo.value.lName;
         const UserName = this.signUpUserInfo.value.uName;
         
-        this.AuthService.SignUpUser(email, password, fName, lName, UserName);
+        this.AuthService.SignUpUser(email, password, fName, lName, UserName).then((err) => {this.isError = true});
 
         };
       }catch (err) {
@@ -98,9 +98,7 @@ export class LoginPageComponent implements OnInit {
 
     this.isLoading = false;
 
-    if (this.isError === false){
-      this.router.navigate(['/']);
-    }
+   
     
   }
 

@@ -1,4 +1,5 @@
 import { Component, Input, ViewChild, OnInit, ElementRef } from '@angular/core';
+import { book } from '../../books.service'
 
 
 
@@ -11,24 +12,51 @@ import { Component, Input, ViewChild, OnInit, ElementRef } from '@angular/core';
 })
 export class FeaturedResultComponent implements OnInit {
   @Input() FeaturedBook;
+  @Input() Searched;
   @ViewChild('section') public Section: ElementRef;
   
-  book = [];
+  book:book[]= [];
+  isLoading = true;
   
+  showAuthor = true;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.FeaturedBook[0].items[0]);
+    console.log(this.FeaturedBook);
+    console.log(this.Searched);
 
-    if(this.FeaturedBook.length != 0){
-      console.log("more than 1");
+    setTimeout(() => {
       
-      
-    }
+      if(this.Searched === false){
+        this.book.push(this.FeaturedBook[0].items[0]); 
+        console.log(this.book)
+      }
+      if(this.Searched === true){
+    
+          this.book.push(this.FeaturedBook); 
+          console.log(this.book)
+       
+    
+      }
+
+      if(!this.book[0].volumeInfo.authors){
+        console.log(this.book);
+        this.book[0].volumeInfo.authors = ["No Author found"]; 
+     
+     }
+      this.isLoading = false;
+    }, 500);
+
+ 
+
+  
+
   }
 mouseEnter(){
   this.Section.nativeElement.classList.add('hover');
+
+ 
 }
 mouseLeave(){
   this.Section.nativeElement.classList.remove('hover');

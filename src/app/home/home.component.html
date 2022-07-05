@@ -1,7 +1,7 @@
 
 <main *ngIf="!isLoading">
     <app-featured-result  *ngFor="let Book of FeaturedBook"
-    [FeaturedBook]="Book"
+    [FeaturedBook]="Book" [Searched]="false"
     class="section"></app-featured-result>
 </main>
 
