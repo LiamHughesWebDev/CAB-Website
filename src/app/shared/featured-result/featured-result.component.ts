@@ -13,7 +13,7 @@ import { book } from '../../books.service'
 export class FeaturedResultComponent implements OnInit {
   @Input() FeaturedBook;
   @Input() Searched;
-  @ViewChild('section') public Section: ElementRef;
+  @ViewChild('wrapper') public Section: ElementRef;
   
   book:book[]= [];
   isLoading = true;
@@ -33,11 +33,8 @@ export class FeaturedResultComponent implements OnInit {
         console.log(this.book)
       }
       if(this.Searched === true){
-    
           this.book.push(this.FeaturedBook); 
           console.log(this.book)
-       
-    
       }
 
       if(!this.book[0].volumeInfo.authors){
@@ -46,7 +43,7 @@ export class FeaturedResultComponent implements OnInit {
      
      }
       this.isLoading = false;
-    }, 500);
+    }, 1000);
 
  
 

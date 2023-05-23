@@ -5,7 +5,7 @@
   </div>
 </header>
 
-<nav>
+<nav id="navbar">
   <ul>
     <a routerLink="/" class="home">
       <li>Home</li>
@@ -18,7 +18,7 @@
       <li>Sign&nbsp;up</li>
     </a>
 
-    <a routerLink="/Account" *ngIf="(afAuth.authState | async)" class="books">
+    <a routerLink="/Account/{{afAuth.user}}" *ngIf="(afAuth.authState | async)" class="books">
       <li>My&nbsp;Account</li>
     </a>
 
@@ -35,10 +35,9 @@
 
 <div id="searchBar">
   <form (ngSubmit)="onSearch(f)" #f="ngForm">
-    <div class="container">
-      
-      <input type="text" class="input" placeholder="What are you looking for?" autocomplete="on" ngModel name="search" />
-      <button type="submit"><img src="../assets/images/icons8-search.svg"></button>
+    <div class="container"> 
+      <input type="text" class="input" placeholder="Type here!" autocomplete="on" ngModel name="search" />
+      <button class="search" type="submit"><img class="searchIcon" src="../assets/images/icons8-search.svg"></button>
     </div>
   </form>
 </div>
@@ -75,7 +74,7 @@
   </main>
 
   <aside>
-    <p style="text-decoration: underline;">This site does not actually contain any Audio Books. It is only connected to Google Books API.</p>
+    <p style="text-decoration: underline;">This site does not actually contain any Audio Books. It is actually connected to Google Books API.</p>
     <p> &copy; Fake Copyright 2022 CAB Inc, Conditions of Use Privacy Policy Interest-based Ads Cookies United States
       (English)</p>
       

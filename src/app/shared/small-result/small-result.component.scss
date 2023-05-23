@@ -4,62 +4,48 @@ section {
 	transform: scale (1,1);
 	
 	padding-bottom: 3%;
-	border-radius: 2%;
+	border-radius: 1%;
 	margin: 5% auto;
 
-	
+	width: 90%;
 
-
-	a{
-		text-decoration: none!important;
-		display: flex;
-		flex-direction: column;
-		
 		img {
 			display: block;
-			width: 10em;
 			height: 15em;
 			margin: 0 auto;
-			border-radius: 15%;
-			box-shadow: 15px 15px 8px rgba(63, 57, 57, 75%);
+			border-radius: 5%;
+			box-shadow: -15px 15px 8px rgba(63, 57, 57, 75%);
 			text-align: center;
+
 		}
-		h1 {
-			margin: 5% 3%;
-			font-size: 1.5em;
-			text-align: center;
-			text-decoration: underline;
-			max-height: 2.4em;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-		h2 {
-			font-style: italic;
-			color: black;
-			text-align: center;
-			font-size: 1em;
-			padding-top: 1%;
-			
-		}
-		div {
+
+
+		div{			//description box shown when book is selected
 			position: absolute;
-			min-height: 5em;
-			max-height: 20em;
-			width: 115%;
-
-			margin-top: 17em;
-			margin-left: -10%;
+			min-height: 10em;
+			max-height: 15em;
+			width: 125%;
+			margin-left: -1.5em;
+	
+			border-top-left-radius: 5%;
+			border-bottom-left-radius: 5%;
+			border-top-right-radius: 2%;
+			border-bottom-right-radius: 2%;
+			
+			margin-top: 13em;
 			padding: .5em;
-
+	
 			display: none;
 			overflow-y: scroll;
 		
 			color: black;
 			text-align: center;
-			font-size: 0.9em;
+			font-size: 1.2em;
 			font-weight: normal;
 			text-decoration: none;
-
+	
+			box-shadow: -15px 15px 8px rgba(63, 57, 57, 75%);
+			
 			h4{
 				padding: 0 1em .25em 1em;
 				font-size: 1.25em;
@@ -74,8 +60,17 @@ section {
 				padding: 0 1em 0 1em;
 				font-size: 1em;
 			}
-	
+			#hide{
+				margin: 1em;
+			}
+			.buttons{
+				position: fixed;
+				bottom: -15em;
+				background-color: white;
+
+			}
 		}
+
 		div::-webkit-scrollbar{
 			width: 12px;
 		}
@@ -85,35 +80,88 @@ section {
 		}
 		div::-webkit-scrollbar-thumb {
 			background: gray; 
-			border-radius: 10px;
+				border-radius: 10px;
 		}
 		div::-webkit-scrollbar-thumb:hover {
 			background: rgb(90, 90, 90); 
-		  }
-		
-	}
+		}
+
+
+
+		h1 {
+			font-size: 1.25em;
+			width: 80%;
+			margin: auto;
+			margin-top: 1em;
+			text-align: center;
+			text-decoration: underline;
+			max-height: 2.5em;
 	
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		h2 {
+			font-style: italic;
+			color: black;
+			text-align: center;
+			font-size: 1em;
+			padding-top: 2%;
+		
+		}
+		
+	
+
+	
+	aside{
+		display:none;
+		margin:auto;
+		margin-top: 2em;
+	}
 }
-section:hover {
-	transform: scale(1.2, 1.2);
+
+
+.hover {
+	transform: scale(1.2, 1.2) perspective(1px) translateZ(0);
 	transition: transform 0.5s;
 
-	height: 150%;
+	backface-visibility: hidden;
+	-webkit-font-smoothing: subpixel-antialiased;
 
-	a{
+	height: 150%;
+			div{
+				display: block;
+				background-color: whitesmoke;
+				
+				aside{
+					display: block;
+				}
+			}
 		
-		div{
-			display: block;
-			background-color: whitesmoke;
-			border-radius: 5%;
+		aside{
+			display: none;
 		}
-	
-	}
 
 	
 }
 
+@media (hover: none) and (pointer: coarse) { // shows the "Show more" button when on mobile devices
+	section{
+		aside{
+			display: block;
+		}
+	}
+}
 
-
-
-
+@media (max-width: 800px){
+	section{
+	
+			img{
+				height: 10em;
+			}
+			div{
+				margin-top: 9em;
+			
+			}
+	
+	}
+}

@@ -9,11 +9,13 @@
 }
 
 main {
-	width: 80%;
+	width: 75%;
 	margin: auto;
 	display: flex;
 	flex-direction: column;
-	background-color: white;
+	background: rgb(159,63,251);
+	background: linear-gradient(317deg, rgba(159,63,251,0.8) 0%, rgba(252,70,107,1) 100%);
+
 
 
 	aside{
@@ -23,11 +25,13 @@ main {
 		width: 30%;
 		margin: auto;
 		margin-bottom: 3%;
-		margin-top: 1%;
 
 		border-top: 2px solid lightgrey;
 		// background-color: lightgray;
 		padding: 1%;
+
+		background-color: whitesmoke;
+			border-radius: 5%;
 
 		
 		h2{
@@ -48,12 +52,15 @@ main {
 		flex-direction: column;
 		align-content: center;
 
-		width: 60%;
-		margin: 3% auto;
-		padding: 0 3%;
+		width: 55%;
+		margin: 2% auto;
+		padding: 5% 5%;
 
 		border-left: 2px solid lightgrey;
 		border-right: 2px solid lightgrey;
+
+		background-color: whitesmoke;
+			border-radius: 5%;
 
 		div{
 			button{
@@ -83,6 +90,7 @@ main {
 			margin: auto;
 			margin-top: 3%;
 			width: 60%;
+			
 
 			p{
 				text-align: center;

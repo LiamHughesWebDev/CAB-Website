@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   
   loaded1 = false;
   loaded2 = false;
-  isLoading = false;
+  isLoading = true;
 
   ngOnInit(): void {
 
@@ -57,9 +57,12 @@ export class HomeComponent implements OnInit {
 
 
     if(this.loaded1 === true && this.loaded2 === true){ 
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000);
+
       this.FeaturedBook = this.FeaturedBook[0].items[0];
-      
-      this.isLoading = false;
+ 
 
     }
 

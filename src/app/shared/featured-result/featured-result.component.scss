@@ -7,87 +7,69 @@ section {
 	border-radius: 1%;
 	margin: 5% auto;
 
-	
+	width: 90%;
 
-
-	a{
-		text-decoration: none!important;
-		display: flex;
-		flex-direction: column;
-		
 		img {
 			display: block;
-			width: 20em;
-			height: 30em;
+			height: 25em;
 			margin: 0 auto;
 			border-radius: 5%;
 			box-shadow: -15px 15px 8px rgba(63, 57, 57, 75%);
 			text-align: center;
+
 		}
-		h1 {
-			margin: 3% 3%;
-			font-size: 1.75em;
-			text-align: center;
-			text-decoration: underline;
-			max-height: 2.5em;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-		h2 {
-			font-style: italic;
+
+
+		div{			//description box shown when book is selected
+			position: absolute;
+			min-height: 5em;
+			max-height: 20em;
+			width: 90%;
+	
+			border-top-left-radius: 5%;
+			border-bottom-left-radius: 5%;
+			border-top-right-radius: 2%;
+			border-bottom-right-radius: 2%;
+			
+			margin-top:22em;
+			padding: .5em;
+	
+			display: none;
+			overflow-y: scroll;
+		
 			color: black;
 			text-align: center;
-			font-size: 1.35em;
-			padding-top: 2%;
-		}
-		
-	}
-	div {
-		position: absolute;
-		min-height: 5em;
-		max-height: 20em;
-		width: 115%;
-
-		border-top-left-radius: 5%;
-		border-bottom-left-radius: 5%;
-		border-top-right-radius: 2%;
-		border-bottom-right-radius: 2%;
-		
-		margin-top: 26em;
-		margin-left: -10%;
-		padding: .5em;
-
-		display: none;
-		overflow-y: scroll;
+			font-size: 1.2em;
+			font-weight: normal;
+			text-decoration: none;
 	
-		color: black;
-		text-align: center;
-		font-size: 1.2em;
-		font-weight: normal;
-		text-decoration: none;
+			box-shadow: -15px 15px 8px rgba(63, 57, 57, 75%);
+			
+			h4{
+				padding: 0 1em .25em 1em;
+				font-size: 1.25em;
+			}
+			h5{
+				padding: 0 1em 1em 1em;
+				font-size: 0.75em;
+				font-style: italic;
+				text-decoration: underline;
+			}
+			p{
+				padding: 0 1em 0 1em;
+				font-size: 1em;
+			}
+			#hide{
+				margin: 1em;
+			}
+			.buttons{
+				position: fixed;
+				bottom: -15em;
+				background-color: white;
 
-		box-shadow: -15px 15px 8px rgba(63, 57, 57, 75%);
-		
-		h4{
-			padding: 0 1em .25em 1em;
-			font-size: 1.25em;
+			}
 		}
-		h5{
-			padding: 0 1em 1em 1em;
-			font-size: 0.75em;
-			font-style: italic;
-			text-decoration: underline;
-		}
-		p{
-			padding: 0 1em 0 1em;
-			font-size: 1em;
-		}
-		#hide{
-			margin: 1em;
-		}
-	
 
-	}
 		div::-webkit-scrollbar{
 			width: 12px;
 		}
@@ -97,16 +79,42 @@ section {
 		}
 		div::-webkit-scrollbar-thumb {
 			background: gray; 
-			border-radius: 10px;
+				border-radius: 10px;
 		}
 		div::-webkit-scrollbar-thumb:hover {
 			background: rgb(90, 90, 90); 
 		}
+
+
+
+		h1 {
+			font-size: 2em;
+			width: 80%;
+			margin: auto;
+			margin-top: 1em;
+			text-align: center;
+			text-decoration: underline;
+			max-height: 2.5em;
+			margin-bottom: .5em;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		h2 {
+			font-style: italic;
+			color: black;
+			text-align: center;
+			font-size: 1.35em;
+			padding-top: 2%;
+		
+		}
+		
+	
+
 	
 	aside{
 		display:none;
 		margin:auto;
-		margin-top: 5em;
+		margin-top: 2em;
 	}
 }
 
@@ -119,16 +127,15 @@ section {
 	-webkit-font-smoothing: subpixel-antialiased;
 
 	height: 150%;
-	
-		div{
-			display: block;
-			background-color: whitesmoke;
-			
-			aside{
+			div{
 				display: block;
+				background-color: whitesmoke;
+				
+				aside{
+					display: block;
+				}
 			}
-		}
-	
+		
 		aside{
 			display: none;
 		}
@@ -136,92 +143,24 @@ section {
 	
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 600px) {
-	section {
-		flex-direction: column;
-
-		a{
-			img{
-				display: block;
-				height: 15em;
-				width: 10em;
-				margin: auto;
-			}
-			h2{
-				text-align: center;
-				padding-top: 0%;
-			}
-		}
-		div{
-			margin-top: 12em;
-		}
-	
-		
-	}
-	
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (max-width: 768px) and (min-width: 600px) {
-	section {
-		flex-direction: column;
-
-		a{
-		
-
-			img{
-				display: block;
-				height: 20em;
-				width: 15em;
-				margin: auto;
-			}
-			h2{
-				text-align: center;
-			}
-		}
-		div{
-			margin-top: 16em;
-			width: 90%;
-			margin-left: auto;
-			margin-right: auto;
-		}
-		
-	
-	}
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (max-width: 1250px) and (min-width: 768px) {
-	section {
-		flex-direction: column;
-	
-		a{
-		
-			img{
-				display: block;
-				height: 25em;
-				width: 20em;
-				margin: auto;
-			}
-			h2{
-				text-align: center;
-			}
-		}
-		div{
-			margin-top: 21em;
-		}
-		
-	
-	}
-	
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media (hover: none) and (pointer: coarse) {
+@media (hover: none) and (pointer: coarse) { // shows the "Show more" button when on mobile devices
 	section{
 		aside{
 			display: block;
 		}
+	}
+}
+
+@media (max-width: 800px){
+	section{
+	
+			img{
+				height: 20em;
+			}
+			div{
+				margin-top: 18em;
+				width: 100%;
+			}
+	
 	}
 }

@@ -1,22 +1,23 @@
-<section #section (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()" *ngIf="!isLoading">
-    <a  href="{{ book[0].volumeInfo.previewLink }}" id="desc">
-        <img src="{{ book[0].volumeInfo.imageLinks.smallThumbnail }}" alt="">
+<section #wrapper (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()" *ngIf="!isLoading">
+  
+        <img src="{{ book[0].volumeInfo.imageLinks.smallThumbnail }}"  alt="Book cover for {{ book[0].volumeInfo.title }}">
+        <div #bookDescription>
+            <a href="{{ book[0].volumeInfo.previewLink }}">
+                <h4>{{ book[0].volumeInfo.title }}</h4>
+                <h5 *ngIf="showAuthor">By: {{ book[0].volumeInfo.authors[0] }}</h5>
+            </a>
+            <p>{{ book[0].volumeInfo.description }}</p>
+            <h3>{{ book[0].saleInfo.listPrice.amount }}&nbsp;</h3>
+            
+            <button mat-raised-button>Add to My Books</button>
+            <button mat-raised-button (click)="hideDesc()" id="hide">Hide</button>
+           
+        </div>
         <h1>{{ book[0].volumeInfo.title }}</h1>
         <h2 *ngIf="showAuthor">{{ book[0].volumeInfo.authors[0] }}</h2>
-    </a> 
 
-    <div >
-        <a href="{{ book[0].volumeInfo.previewLink }}">
-            <h4>{{ book[0].volumeInfo.title }}</h4>
-            <h5 *ngIf="showAuthor">By: {{ book[0].volumeInfo.authors[0] }}</h5>
-        </a>
-        <p>{{ book[0].volumeInfo.description }}</p>
-        <h3>{{ book[0].saleInfo.listPrice.amount }}&nbsp;</h3>
-        
-        <button mat-raised-button>Add to My Books</button>
-        <button mat-raised-button (click)="hideDesc()" id="hide">Hide</button>
-       
-    </div>
+
+   
     
     <aside>
         <button (click)="showDesc()" mat-raised-button> Show more </button>

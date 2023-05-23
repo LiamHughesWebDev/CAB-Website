@@ -7,12 +7,12 @@ main {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
-	width: 80%;
+	width: 75%;
 	margin: 0 auto;
 	background-color: #f7bd2d;
 
 	.section {
-		margin: 2% 0;
+		margin-top: 5%;
 		width: 30%;
 		min-height: 45em;
 	}
@@ -21,9 +21,8 @@ section {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-around;
 
-	width: 80%;
+	width: 75%;
 	margin: 0 auto;
 	background-color: #f7bd2d;
 
@@ -34,45 +33,67 @@ section {
 	}
 }
 
-aside{
+#loadingIcon{
 	width: 80%;
 	margin: 0% auto;
 	text-align: center;
 }
 
+
 @media (max-width: 1200px) {
-}
-@media (max-width: 992px) {
 	main {
-		width: 90%;
+		width: 75%;
 		flex-direction: column;
 		justify-content: center;
 
 		.section {
-			width: 60%;
+			width: 90%;
 			margin: 0 auto;
+		}
+	}
+	section {
+		width: 75%;
+		flex-direction: row;
+		justify-content: center;
+
+		.section {
+			width: 30%;
+		}
+	}
+}
+@media (max-width: 800px) {
+	main {
+		width: 90%;
+		justify-content: center;
+
+		.section {
+			width: 70%;
+		}
+	}
+	section {
+		width: 90%;
+
+		.section {
+			width: 30%;
+		}
+	}
+}
+@media (max-width: 500px) {
+	main {
+		width: 90%;
+		justify-content: center;
+
+		.section {
+			width: 70%;
 		}
 	}
 	section {
 		width: 90%;
 		flex-direction: column;
-		justify-content: center;
+		padding-left: 4em;
 
 		.section {
-			width: 60%;
-			margin: 0 auto;
-		}
-	}
-}
-@media (max-width: 768px) {
-	main {
-		width: 90%;
-		flex-direction: column;
-		justify-content: center;
-
-		.section {
-			width: 70%;
-			margin: 0 auto;
+			width: 30%;
 		}
 	}
 }

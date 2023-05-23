@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private BookService: BookService, private router: Router, public afAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
-    
+    console.log(this.afAuth.user);
   }
 
   onSearch(f) {
@@ -32,11 +32,27 @@ export class AppComponent implements OnInit, OnDestroy {
 
   }
 
-
+  
 
   ngOnDestroy(){
 
   }
  
+  StickyNavbar(){
+    
+    var prevScrollpos = window.pageYOffset;
+
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+        document.getElementById("searchBar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-50px";
+        document.getElementById("searchBar").style.top = "-50px";
+      }
+      prevScrollpos = currentScrollPos;
+}
+  }
 
 }
